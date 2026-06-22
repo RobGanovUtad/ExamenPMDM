@@ -1,8 +1,16 @@
 package com.example.examenextraordinariapmdm.data.model
 
 import android.os.Parcelable
+import android.os.Parcel
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+
+/*
+Unresolved reference 'parcelize'.
+Unresolved reference 'Parcelize'.
+<html>Class 'Personaje' is not abstract and does not implement abstract members:<br/>fun describeContents(): Int<br/>fun writeToParcel(dest: Parcel, flags: Int): Unit
+This class implements `Parcelable` but does not provide a `CREATOR` field
+ */
 
 
 @Parcelize
@@ -24,4 +32,16 @@ data class Personaje(
     val frases: List<String>,
     @SerializedName("status")
     val status: String
-): Parcelable
+): Parcelable {
+    private constructor(parcel: Parcel) : this(
+        id = parcel.readInt(),
+        edad = parcel.readValue(Int::class.java.classLoader) as? Int,
+        fechaNacimiento = parcel.readString(),
+        genero = parcel.readString() ?: "",
+        nombre = parcel.readString() ?: "",
+        ocupacion = parcel.readString() ?: "",
+        foto = parcel.readString() ?: "",
+        frases = parcel.createStringArrayList() ?: emptyList(),
+        status = parcel.readString() ?: ""
+    )
+}
