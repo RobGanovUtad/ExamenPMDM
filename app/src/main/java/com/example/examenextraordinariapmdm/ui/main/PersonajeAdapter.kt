@@ -26,15 +26,19 @@ class PersonajeAdapter (
 
     inner class PersonajeViewHolder(private val binding: ItemPersonajeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(personaje: Personaje) {
+            /*
             binding.apply {
                 Glide.with(root.context).load(personaje.image).into(imageView)
                 textViewName.text = personaje.name
                 root.setOnClickListener { onClickPersonaje(personaje) }
+
+             */
+            //No se si me va a dar tiempo a ponerme con los xml
             }
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Personaje>() {
+    object DiffCallback : DiffUtil.ItemCallback<Personaje>() {
         override fun areItemsTheSame(oldItem: Personaje, newItem: Personaje): Boolean {
             return oldItem.id == newItem.id
         }
