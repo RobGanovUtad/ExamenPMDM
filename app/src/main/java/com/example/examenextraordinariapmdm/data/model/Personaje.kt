@@ -3,7 +3,6 @@ package com.example.examenextraordinariapmdm.data.model
 import android.os.Parcelable
 import android.os.Parcel
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
 /*
 Unresolved reference 'parcelize'.
@@ -12,8 +11,6 @@ Unresolved reference 'Parcelize'.
 This class implements `Parcelable` but does not provide a `CREATOR` field
  */
 
-
-@Parcelize
 data class Personaje(
     val id: Int,
     @SerializedName("age")
